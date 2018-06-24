@@ -5,6 +5,6 @@ public class JokeTeller {
     public JokeTeller(){}
 
     public String getJoke(){
-        return "Joke joker!";
+        return "Why did the cow cross the road? It wanted to go to the mooovies.";
     }
 }
