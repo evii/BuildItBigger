@@ -46,7 +46,6 @@ public class JokeAsyncTask extends AsyncTask<Pair<Context, String>, Void, String
         }
 
         context = params[0].first;
-       // String name = params[0].second;
 
         return (new JokeTeller()).getJoke();
     }

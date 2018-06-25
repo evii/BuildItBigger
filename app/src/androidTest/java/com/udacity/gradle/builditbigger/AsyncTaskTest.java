@@ -27,10 +27,8 @@ public class AsyncTaskTest {
     @Test
     public void checkasync() throws InterruptedException, ExecutionException, TimeoutException {
 
-        Context context = InstrumentationRegistry.getTargetContext();
-
         JokeAsyncTask jokeAsyncTask= new JokeAsyncTask();
-        jokeAsyncTask.execute(new Pair<Context, String>(InstrumentationRegistry.getTargetContext(), "Manfred"));
+        jokeAsyncTask.execute(new Pair<>(InstrumentationRegistry.getTargetContext(), "Manfred"));
         resultString = jokeAsyncTask.get(20, TimeUnit.SECONDS);
         assertNotNull(resultString);
     }

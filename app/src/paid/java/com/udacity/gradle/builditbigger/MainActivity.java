@@ -8,16 +8,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-
 public class MainActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -43,12 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void tellJoke(View view) {
 
-
         new JokeAsyncTask().execute(new Pair<Context, String>(this, "Manfred"));;
 
-
-        //Toast.makeText(this, joke, Toast.LENGTH_SHORT).show();
     }
-
-
 }

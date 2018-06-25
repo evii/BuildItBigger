@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.util.Pair;
-import android.widget.Toast;
 
 import com.example.android.androidjokelibrary.JokeActivity;
 import com.example.android.javajokelibrary.JokeTeller;
@@ -47,7 +46,6 @@ public class JokeAsyncTask extends AsyncTask<Pair<Context, String>, Void, String
         }
 
         context = params[0].first;
-       // String name = params[0].second;
 
         return (new JokeTeller()).getJoke();
     }
