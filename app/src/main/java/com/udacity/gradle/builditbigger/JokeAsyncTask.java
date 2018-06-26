@@ -6,7 +6,6 @@ import android.os.AsyncTask;
 import android.support.v4.util.Pair;
 
 import com.example.android.androidjokelibrary.JokeActivity;
-import com.example.android.javajokelibrary.JokeTeller;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
@@ -14,6 +13,7 @@ import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 
 import java.io.IOException;
+
 
 /**
  * Created by evi on 24. 6. 2018.
@@ -24,6 +24,10 @@ public class JokeAsyncTask extends AsyncTask<Pair<Context, String>, Void, String
     private static MyApi myApiService = null;
     private Context context;
     private static final String JOKE_INTENT = "JOKE_INTENT";
+
+
+
+
 
     @Override
     protected String doInBackground(Pair<Context, String>... params) {
@@ -42,15 +46,23 @@ public class JokeAsyncTask extends AsyncTask<Pair<Context, String>, Void, String
                     });
             // end options for devappserver
 
+
             myApiService = builder.build();
         }
 
         context = params[0].first;
 
-        return (new JokeTeller()).getJoke();
+        try {
+            return myApiService.retreiveJoke().execute().getData();
+        } catch (IOException e) {
+            return e.getMessage();
+        }
     }
 
-    @Override
+
+
+
+@Override
     protected void onPostExecute(String result) {
 
         Intent intent = new Intent(context, JokeActivity.class);
@@ -60,5 +72,15 @@ public class JokeAsyncTask extends AsyncTask<Pair<Context, String>, Void, String
 
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 
