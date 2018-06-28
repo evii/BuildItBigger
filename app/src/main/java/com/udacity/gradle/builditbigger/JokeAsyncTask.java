@@ -53,7 +53,7 @@ public class JokeAsyncTask extends AsyncTask<Pair<Context, String>, Void, String
         context = params[0].first;
 
         try {
-            return myApiService.retreiveJoke().execute().getData();
+            return myApiService.retreiveJoke().execute().getJoke();
         } catch (IOException e) {
             return e.getMessage();
         }
