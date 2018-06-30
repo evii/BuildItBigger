@@ -25,10 +25,6 @@ public class JokeAsyncTask extends AsyncTask<Pair<Context, String>, Void, String
     private Context context;
     private static final String JOKE_INTENT = "JOKE_INTENT";
 
-
-
-
-
     @Override
     protected String doInBackground(Pair<Context, String>... params) {
         if (myApiService == null) {  // Only do this once
@@ -46,7 +42,6 @@ public class JokeAsyncTask extends AsyncTask<Pair<Context, String>, Void, String
                     });
             // end options for devappserver
 
-
             myApiService = builder.build();
         }
 
@@ -59,10 +54,7 @@ public class JokeAsyncTask extends AsyncTask<Pair<Context, String>, Void, String
         }
     }
 
-
-
-
-@Override
+    @Override
     protected void onPostExecute(String result) {
 
         Intent intent = new Intent(context, JokeActivity.class);
