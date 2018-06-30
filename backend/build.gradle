@@ -34,3 +34,5 @@ dependencies {
 }
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
+
+appengine.run.startSuccessTimeout = 60
